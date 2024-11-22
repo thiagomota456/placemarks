@@ -20,11 +20,11 @@ namespace placemarksAPI.Controllers
             return filtrate.GetFilters();
         }
 
-        [HttpGet]
-        public List<Placemark> GetAllplacemarks()
-        {
-            return filtrate.FiltrarPlacemarks();
-        }
+        //[HttpGet]
+        //public List<Placemark> GetAllplacemarks()
+        //{
+        //    return filtrate.FiltrarPlacemarks();
+        //}
 
         [HttpPost]
         public List<Placemark> GetPlacemarksList(ExtendDataObject extendDataObject)
