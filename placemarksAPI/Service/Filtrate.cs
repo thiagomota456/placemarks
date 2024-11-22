@@ -8,7 +8,8 @@ namespace placemarksAPI.Service
 {
     public class Filtrate
     {
-
+        //Posso implementar um cache ou algo do tipo pra não ficar toda hora 
+        //deserealizando o arquivos de dado. Faço se der tempo
         public Kml FilterFile(ExtendDataObject extendDataObject)
         {
             var kmlFiltered = ProcessKMLFile.Deserealize();
@@ -21,9 +22,15 @@ namespace placemarksAPI.Service
         //Farei um Filtro mais Geral aqui.
         //Parametros referencia e ruaOuCruzamento não são obrigatorios nesse metodo.
         //Vou essa validação no Controller
-        public List<Placemark> FiltrarPlacemarks(ExtendDataObject extendDataObject)
+        public List<Placemark> FiltrarPlacemarks(ExtendDataObject? extendDataObject = null)
         {
+
             var placemarks = ProcessKMLFile.Deserealize().Document.Folder?.Placemarks ?? [];
+
+            if (extendDataObject == null)
+            {
+                return placemarks;
+            }
 
             var obrigatorios = placemarks
             .Where(p => p.ExtendedData?.Data != null) // Verifica se há dados

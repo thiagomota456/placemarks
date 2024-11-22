@@ -1,50 +1,55 @@
-//var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
-//// Add services to the container.
+// Add services to the container.
 
-//builder.Services.AddControllers();
-//// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-//builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-//var app = builder.Build();
-
-//// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
+//builder.Services.AddControllersWithViews(options =>
 //{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
+//    options.Filters.Add(new Microsoft.AspNetCore.Mvc.ValidateAntiForgeryTokenAttribute());
+//});
 
-//app.UseHttpsRedirection();
+var app = builder.Build();
 
-//app.UseAuthorization();
-
-//app.MapControllers();
-
-//app.Run();
-
-using placemarksAPI.Model;
-using placemarksAPI.Model.kml;
-using placemarksAPI.Service;
-using System.Text;
-using System.Text.Json;
-
-ExtendDataObject extendDataObject = new() 
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    RuaCruzamento = "AV.",
-    Referencia = "SEMAFORO",
-    Bairro = "13 DE JULHO",
-    Situacao = "",
-    Cliente = "GRADE"
-};
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-var teste = new Filtrate();
+app.UseHttpsRedirection();
 
-var plk = teste.FilterFile(extendDataObject);
+app.UseAuthorization();
 
-var file = Tools.SerializeToXml(plk);
+app.MapControllers();
 
-File.WriteAllText("C:\\Users\\Thiago\\Desktop\\newKlm.xml", file);
+app.Run();
 
-Console.ReadLine();
+//using placemarksAPI.Model;
+//using placemarksAPI.Model.kml;
+//using placemarksAPI.Service;
+//using System.Text;
+//using System.Text.Json;
+
+//ExtendDataObject extendDataObject = new() 
+//{
+//    RuaCruzamento = "AV.",
+//    Referencia = "SEMAFORO",
+//    Bairro = "13 DE JULHO",
+//    Situacao = "",
+//    Cliente = "GRADE"
+//};
+
+//var teste = new Filtrate();
+
+//var plk = teste.FilterFile(extendDataObject);
+
+//var file = Tools.SerializeToXml(plk);
+
+//File.WriteAllText("C:\\Users\\Thiago\\Desktop\\newKlm.xml", file);
+
+//Console.ReadLine();
