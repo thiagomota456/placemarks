@@ -4,16 +4,16 @@ namespace placemarksAPI.Model.kml
 {
     public class HotSpot
     {
-        [XmlAttribute("x")]
+        [XmlElement("x")]
         public float? X { get; set; }
 
-        [XmlAttribute("xunits")]
+        [XmlElement("xunits")]
         public string? XUnits { get; set; }
 
-        [XmlAttribute("y")]
+        [XmlElement("y")]
         public float? Y { get; set; }
 
-        [XmlAttribute("yunits")]
+        [XmlElement("yunits")]
         public string? YUnits { get; set; }
     }
 }

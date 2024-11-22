@@ -4,7 +4,7 @@ namespace placemarksAPI.Model.kml
 {
     public class StyleMap
     {
-        [XmlAttribute("id")]
+        [XmlElement("id")]
         public string? Id { get; set; }
 
         [XmlElement("Pair")]
