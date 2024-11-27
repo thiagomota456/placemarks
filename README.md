@@ -57,7 +57,7 @@ Os dados contidos no elemento `Placemark` devem ser filtráveis pelos seguintes 
 
 ### b. Listar em Formato JSON
 - **Endpoint**: `/api/placemarks`
-- **Método**: `GET`
+- **Método**: `POST`
 - **Parâmetros**: Filtros para `CLIENTE`, `SITUAÇÃO`, `BAIRRO`, `REFERÊNCIA` e `RUA/CRUZAMENTO`.
 - **Retorno**: Lista dos elementos filtrados no formato JSON.
 - **Validação**: Retornar **erro 400** se os filtros forem inválidos.
